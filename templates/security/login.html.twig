@@ -3,7 +3,7 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
-<form method="post">
+<form method="post" style="width: 50%; margin: 50px auto;display: flex; flex-direction: column;">
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
@@ -19,24 +19,22 @@
     <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
     <label for="inputPassword">Password</label>
     <input type="password" name="password" id="inputPassword" class="form-control" required>
+{#    <input type="checkbox" id="remember_me" name="_remember_me" checked/>#}
+{#    <label for="remember_me">Keep me logged in</label>#}
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+    <div class="checkbox mb-3">
+        <label>
+            <input type="checkbox" name="_remember_me"> Remember me
+        </label>
+    </div>
 
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
-
-    {#
-        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-        See https://symfony.com/doc/current/security/remember_me.html
-
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" name="_remember_me"> Remember me
-            </label>
-        </div>
-    #}
 
     <button class="btn btn-lg btn-primary" type="submit">
         Sign in
     </button>
 </form>
+<div style="display: flex; width: 50%; margin: 20px auto; justify-content: space-between;">
+    <a class="btn btn-outline-primary" href="{{ path('connect_facebook_start') }}">Sign In With Facebook</a>
+    <a class="btn btn-outline-success" href="{{ path('connect_google_start') }}">Sign In With Google</a>
+</div>
 {% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'admin/base.html.twig' %}
+{% block body %}
+    <div class="container-fluid px-xl-5">
+        <div class="py-5">
+            <div class="col-lg-6 mb-5">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="h6 text-uppercase mb-0">Користувач</h3>
+                    </div>
+                    <div class="card-body">
+                        {{ form_start(form) }}
+                        {{ form_row(form.name, {'label' : "Ім'я" }) }}
+                        {{ form_row(form.roles, {'label' : 'Роль' }) }}
+                        <button type="submit" class="btn btn-primary">Застосувати</button>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

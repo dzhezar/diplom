@@ -1,6 +1,54 @@
 index:
     path: /
     controller: App\Controller\IndexController::index
+category:
+    path: /category/{slug}
+    controller: App\Controller\IndexController::showCategory
+post:
+    path: /post/{id}
+    controller: App\Controller\IndexController::showPost
+comment_delete:
+    path: /comment/delete/{id}
+    controller: App\Controller\IndexController::deleteComment
 register:
     path: /register
     controller: App\Controller\RegistrationController::register
+app_login:
+    path: /login
+    controller: App\Controller\Security\SecurityController::login
+logout:
+    path: /logout
+    controller: App\Controller\Security\SecurityController::logout
+admin:
+    path: /admin
+    controller: App\Controller\Admin\IndexController::index
+admin_category_index:
+    path: /admin/category
+    controller: App\Controller\Admin\Category\IndexController::index
+admin_category_add:
+    path: /admin/category/add
+    controller: App\Controller\Admin\Category\IndexController::add
+admin_category_edit:
+    path: /admin/category/edit/{id}
+    controller: App\Controller\Admin\Category\IndexController::edit
+admin_category_delete:
+    path: /admin/category/delete/{id}
+    controller: App\Controller\Admin\Category\IndexController::delete
+admin_post_index:
+    path: /admin/post
+    controller: App\Controller\Admin\Post\IndexController::index
+admin_post_add:
+    path: /admin/post/add
+    controller: App\Controller\Admin\Post\IndexController::add
+admin_post_edit:
+    path: /admin/post/edit/{id}
+    controller: App\Controller\Admin\Post\IndexController::edit
+admin_post_delete:
+    path: /admin/post/delete/{id}
+    controller: App\Controller\Admin\Post\IndexController::delete
+admin_user_index:
+    path: /admin/user
+    controller: App\Controller\Admin\UserController::index
+admin_user_edit:
+    path: /admin/user/edit/{id}
+    controller: App\Controller\Admin\UserController::edit

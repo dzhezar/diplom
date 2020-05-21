@@ -1,0 +1,9 @@
+<div class="col-9 text-right">
+    <nav class="site-navigation" role="navigation">
+        <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block mb-0">
+            {% for category in categories %}
+            <li><a href="{{ path('category', {slug : category.slug}) }}">{{ category.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </nav>
+</div>

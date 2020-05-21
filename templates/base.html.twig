@@ -2,11 +2,97 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>{% block title %}Форум{% endblock %}</title>
+        {% block stylesheets %}
+            <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700|Playfair+Display:400,700,900" rel="stylesheet">
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+
+            <link rel="stylesheet" href="/fonts/icomoon/style.css">
+            <link rel="stylesheet" href="/css/bootstrap.min.css">
+            <link rel="stylesheet" href="/css/magnific-popup.css">
+            <link rel="stylesheet" href="/css/jquery-ui.css">
+            <link rel="stylesheet" href="/css/owl.carousel.min.css">
+            <link rel="stylesheet" href="/css/owl.theme.default.min.css">
+            <link rel="stylesheet" href="/css/bootstrap-datepicker.css">
+            <link rel="stylesheet" href="/fonts/flaticon/font/flaticon.css">
+            <link rel="stylesheet" href="/css/aos.css">
+
+            <link rel="stylesheet" href="/css/style.css">
+        {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        <div class="site-wrap">
+
+        <div class="site-mobile-menu">
+            <div class="site-mobile-menu-header">
+                <div class="site-mobile-menu-close mt-3">
+                    <span class="icon-close2 js-menu-toggle"></span>
+                </div>
+            </div>
+            <div class="site-mobile-menu-body"></div>
+        </div>
+
+        <header class="site-navbar" role="banner">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-2 site-logo">
+                        <a href="index.html" class="text-black h2 mb-0">Науковий форум</a>
+                    </div>
+
+                    {{ render(controller('App\\Controller\\CategoryController::getVisibleCategories')) }}
+
+                    <div class="col-1">
+                        {% if app.user == null %}
+                            <a href="{{ path('app_login') }}" class="text-black h5 mb-0" style="display: flex">Увійти</a>
+                        {% else %}
+                            <a href="{{ path('logout') }}" class="text-black h5 mb-0" style="display: flex">Вийти</a>
+                        {% endif %}
+                    </div>
+                </div>
+
+            </div>
+        </header>
+        {% block body %} {% endblock %}
+        <div class="site-footer">
+            <div class="container">
+                <div class="row mb-5">
+                    <div class="col-md-4">
+                        <h3 class="footer-heading mb-4">Про нас</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat reprehenderit magnam deleniti quasi saepe, consequatur atque sequi delectus dolore veritatis obcaecati quae, repellat eveniet omnis, voluptatem in. Soluta, eligendi, architecto.</p>
+                    </div>
+
+                    <div class="col-md-7" style="display: flex; justify-content: flex-end">
+                        <div>
+                            <h3 class="footer-heading mb-4" >Зв'язатися з нами</h3>
+                            <p>
+                                <a href="#"><span class="icon-facebook pt-2 pr-2 pb-2 pl-0"></span></a>
+                                <a href="#"><span class="icon-twitter p-2"></span></a>
+                                <a href="#"><span class="icon-instagram p-2"></span></a>
+                                <a href="#"><span class="icon-rss p-2"></span></a>
+                                <a href="#"><span class="icon-envelope p-2"></span></a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        {% block javascripts %}
+            <script src="/js/jquery-3.3.1.min.js"></script>
+            <script src="/js/jquery-migrate-3.0.1.min.js"></script>
+            <script src="/js/jquery-ui.js"></script>
+            <script src="/js/popper.min.js"></script>
+            <script src="/js/bootstrap.min.js"></script>
+            <script src="/js/owl.carousel.min.js"></script>
+            <script src="/js/jquery.stellar.min.js"></script>
+            <script src="/js/jquery.countdown.min.js"></script>
+            <script src="/js/jquery.magnific-popup.min.js"></script>
+            <script src="/js/bootstrap-datepicker.min.js"></script>
+            <script src="/js/aos.js"></script>
+
+            <script src="/js/main.js"></script>
+        {% endblock %}
     </body>
 </html>
